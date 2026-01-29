@@ -22,7 +22,7 @@ b_hat = covariance_numerator / sum_of_squared_deviations
 a_hat = squarePrice_mean - (b_hat * property_age_mean)
 
 
-
+# ~~~~~~~~~~~~~TEST~~~~~~~~~~~~~~~
 
 for test_age in range(0, 31, 5):
     test_price = price_predictor(a_hat, b_hat, test_age)
