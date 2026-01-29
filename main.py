@@ -16,10 +16,12 @@ squarePrice_mean = df["square price"].mean()
 covariance_numerator = ((df["propertyAge"] - pAge_mean) * (df["square price"] - squarePrice_mean)).sum()
 sum_of_squared_deviations = ((df["propertyAge"] - pAge_mean) ** 2).sum()
 
-b_hat = covariance_numerator // sum_of_squared_deviations
+b_hat = covariance_numerator / sum_of_squared_deviations
 a_hat = squarePrice_mean - (b_hat * pAge_mean)
 
 
-test_age = 2
+test_age = 10
+test_price = price_predictor(a_hat, b_hat, test_age)
+test_price = round(test_price, 2)
 
-print(price_predictor(a_hat, b_hat, test_age))
+print(f"Property age = {test_age} | price = {test_price} Riyals/square meter")
