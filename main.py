@@ -10,14 +10,16 @@ df = pandas.read_csv("RiyadhVillasAqar.csv", dtype={"apartments": "str"})
 df = df[["propertyAge", "square price"]]
 df = df[df["propertyAge"] > 0]              #most are 0 which i think is default for NAN so getting rid of them
 
-pAge_mean = df["propertyAge"].mean()
+property_age_mean = df["propertyAge"].mean()
 squarePrice_mean = df["square price"].mean()
 
-covariance_numerator = ((df["propertyAge"] - pAge_mean) * (df["square price"] - squarePrice_mean)).sum()
-sum_of_squared_deviations = ((df["propertyAge"] - pAge_mean) ** 2).sum()
+covariance_numerator = ((df["propertyAge"] - property_age_mean) * (df["square price"] - squarePrice_mean)).sum()
+sum_of_squared_deviations = ((df["propertyAge"] - property_age_mean) ** 2).sum()
 
+
+# square_price = a^ + (b^ * property_age)
 b_hat = covariance_numerator / sum_of_squared_deviations
-a_hat = squarePrice_mean - (b_hat * pAge_mean)
+a_hat = squarePrice_mean - (b_hat * property_age_mean)
 
 
 
