@@ -25,4 +25,4 @@ a_hat = squarePrice_mean - (b_hat * pAge_mean)
 for test_age in range(0, 31, 5):
     test_price = price_predictor(a_hat, b_hat, test_age)
     test_price = round(test_price, 2)
-    print(f"Property age = {test_age} | price = {test_price} Riyals/square meter")
+    print(f"Property age = {test_age} | price = {test_price} Riyals/Square Meter")
